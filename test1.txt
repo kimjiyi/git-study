@@ -1,0 +1,52 @@
+git 사용법
+
+git 명령어를 사용할 수 있는 환경 세팅
+    https://git-scm.com/ 에서 git-scm.exe 다운로드 후 설치
+    터미널에서 git 명령어를 실행하여 정상적으로 설치 되었는지 확인
+
+
+git 버전관리 저장소 설정
+    1) 프로젝트 폴더 생성후  git-init 명령어를 실행하여 저장소 초기화
+    2) .git 숨김폴더가 생성되었는지 확인
+
+    3) git config user.name 명령어를 실행하여 이름이 설정되어 있는지 확인
+        없으면 -> git config user.name "홍길동"
+
+    4) git config user.email 명령어를 실행하여 이메일이 설정되어 있는지 확인
+        없으면 -> git config user.email "hong@naver.com"
+
+    5) 설정이 잘 되었는지 다시 확인
+
+    6) 원격저장소 생성후 로컬저장소와 연결
+        기존에 설정된 원격저장소 확인 git remote -v 
+        
+        원격저장소를 생성하고 나면 아래와 같은 형식의 코드가 나와 있으니 복붙한다.
+            git remote add origin <원격저장소 주소>
+            예시) git remote add origin https://github.com/myID/akm.git
+
+        만약 기존에 설정된 저장소를 제거하고 싶다면
+            git remote remove origin
+        
+
+git 버전생성 및 업로드를 위한 명령어
+    1) 추적설정하여 index 영역으로 이동시키기
+        모든파일을 한꺼번에 이동 => git add . 
+        개별파일로 이동 => git add 파일명
+
+    2) index 영역으로 올라간 파일을 working-copy 영역으로 내리기
+        개별파일 => git rm --cached 파일명
+        모든파일 => git rm --cached *.*
+
+    3) 버전생성 및 repository 영역으로 이동시키기
+        git commit -m '버전생성메세지'
+
+    4) 기존 버전을 삭제하면서 과거로 돌아가기
+        현재의 기억을 가지고 과거로 가기 => git reset --mixed 커밋번호
+        현재의 기억을 안가지고 과거로 가기 => git reset --hard 커밋번호
+
+
+
+원격저장소로 파일 업로드
+    git push origin master
+        -> 최초업로드 할때 만약 github 로그인창이 나오면 id,pwd 입력후 진행 계속
+        -> 브라우저에서 새로고침 실행후 업로드 확인    
